@@ -1,0 +1,95 @@
+\section*{Segundo Parcial}
+\subsection*{Propiedades generales}
+\begin{itemize}
+    \item $||Ax||_2^2 = (Ax)^t Ax$
+    \item $a^2-b^2 = (a-b) (a+b)$
+    \item $x = \frac {-b \pm \sqrt {b^2 - 4ac}}{2a}$
+    \item $||QA|| = ||A||$ para cualquier $Q$ matriz ortogonal
+    \item $||(v,w)|| = ||v||_2^2+||w||_2^2$ concatenación de vectores
+    \item $A^tA$ es simétrica semidefinida positiva, tiene base ortonormal de autovectores reales y autovalores no negativos. 
+\end{itemize}
+\subsection*{Práctica 5: Autovalores y Autovectores}
+\begin{enumerate}
+    \item $x \neq 0$ autovector con autovalor $\lambda$ de $A \iff Ax = \lambda x$ 
+    \item \textbf{radio espectral:} $\rho(A) = \max \{|\lambda| : \lambda$ autovalor de $A\}$
+    \item $det(A-\lambda I) = 0$ por lo tanto no es inversible
+    \item \textbf{polinomio característico:} $P(\lambda) = det(A-\lambda I)$, $\lambda$ autovalor de A $\iff \lambda$ es raíz de $P(\lambda)$
+    \item Si $Ax = \lambda x \Rightarrow \alpha A + \beta I = (\alpha \lambda + \beta) x$ $\forall \alpha,\beta \in C$ 
+    \item Si $Av = \lambda v \Rightarrow A^kv = \lambda^k v$
+    \item Un $\lambda$ puede estar asociado a lo sumo a $m$ autovectores l.i., donde $m$ es la multiplicidad en el polinomio característico
+    \item Si $A$ es ortogonal, entonces todos sus autovalores tienen módulo 1
+    \item Si $A$ es $sdp$ todos sus autovalores $\lambda > 0$ 
+    \item Si $A$ no es inversible $\Rightarrow \lambda = 0$ es autovalor de $A$
+    \item Si $\lambda = 0$ no es autovalor de $A \Rightarrow$ A es inversible
+    \item Si $\lambda^1, \lambda^2, \dots, \lambda^n$ son autovalores distintos, con autovectores asociados $v^1, v^2, \dots, v^n$ entonces $A$ tiene $n$ autovalores distintos, entonces tiene base de autovectores (son todos l.i. y ortogonales)
+    \item Si $A$ es triangular entonces $a_{ii}$ es autovalor
+    \item Si $v$ es un autovector asociado a $\lambda$ entonces $\alpha v$ también es un autovector asociado a $\alpha$
+    \item $A$ y $A^t$ tienen los mismos autovalores, por lo tanto si $\lambda$ es autovalor de $AA^t$ lo es de $A^tA$ 
+    \item Si $A$ es simétrica, todos sus autovalores son reales y existen sus autovectores con coeficientes reales
+    \item \textbf{matrices semejantes:} $A$ y $B$ son semejantes si existe una matriz $P$ inversible tal que: $A = P^{-1}BP$
+    \item Si $A$ tiene base de autovectores es \textbf{diagonalizable}: $\exists S$ inversible con sus autovectores como columnas  y $D$ con sus autovalores en la diagonal, se escribe como $A = SDS^{-1}$
+    \item \textbf{método de potencia} $A$ con base de autovectores y $|\lambda_1| > |\lambda_2| \geq \dots \geq |\lambda_n|$, el autovalor principal se obtendrá a partir de un $x^{(0)}$ cualquiera iterando $x_{k+1} = \frac{Ax_k}{||Ax_k||}$
+    \item \textbf{método de deflación} $A' = A - \lambda_1 v_1 v_1^t$ donde $v_1$ es el autovector asociado al máximo autovalor $\lambda_1$. A esta matriz se le vuelve a aplicar el método de la potencia para conseguir el segundo mayor autovalor.
+    \item Si $\lambda$ es autovalor de $A$, entonces los autovalores de $\alpha\mathbb{I}-\beta A$ son $\alpha+\beta \lambda$ 
+\end{enumerate}
+
+\subsection*{Práctica 6: Descomposición en Valores Singulares}
+\begin{enumerate}
+    \item $A \in \mathbb{R}^{mxn}$, $A=U\Sigma V^t$ con  $U \in \mathbb{R}^{mxm}$, $\Sigma \in \mathbb{R}^{mxn}$, $V\in \mathbb{R}^{nxn}$
+    \item \textbf{valores singulares: }$\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r > 0 \in \Sigma$
+    \item $\frac{Av_i}{\sigma_i} = u_i$, si $i = 1, \dots, r$
+    \item $Av_i = 0$ ,si $i = r+1, \dots, n$
+    \item $A^tAv_i = \sigma_i^2 u_i$, si $i = 1, \dots, r$
+    \item $A^tAv_i = 0$ ,si $i = r+1, \dots, n$
+    \item Obtener descomposición en valores singulares:
+    \begin{itemize}
+        \item $\sigma_i = \sqrt{\lambda_i}$ con $\lambda_i$ autovector de $A^tA$ 
+        \item Las columnas $v_1, v_2, \dots, v_n$ son base ortonormal de autovectores de $A^tA$, $V$ ortogonal
+        \item Calcular $U$ según 3 y completar el resto de las columnas con base ortonormal del $Nu(A^t)$, o usar que las columnas $u_1, u_2, \dots, u_n$ son base ortonormal de autovectores de $AA^t$, con $U$ ortogonal
+    \end{itemize}
+    \item $AA^t = U \Sigma \Sigma^t U^t$
+    \item $A^tA = V \Sigma \Sigma^t V^t$
+    \item $||A||_2 = \sigma_1$ valor singular mas grande
+    \item Si $A$ inversible, el número de condición basado en la norma 2: $\kappa_2(A) = \frac{\sigma_1}{\sigma_n}$
+    \item Si $A$ inversible, los valores singulares de $A^{-1}$ son $\frac{1}{\sigma_n} \geq \dots \geq \frac{1}{\sigma_1} $
+    \item $||A||_F = \sqrt{(\sigma_1)^2 + \dots + (\sigma_r)^2}$
+    \item Si $\Sigma \in \mathbb{R}^{nxn} \Rightarrow \Sigma^t \Sigma = \Sigma \Sigma^t = \Sigma^2$ 
+    \item $A \in \mathbb{R}^{nxn}$ simétrica definida positiva $\Rightarrow$ los autovalores de A coinciden con sus valores singulares. 
+\end{enumerate}
+\subsection*{Práctica 7: Métodos iterativos}
+\begin{enumerate}
+    \item Queremos aproximar $Ax=b$, $A\in \mathbb{R}^{nxn}, b\in\mathbb{R}^n$ reescribimos $A = D - L - U$
+    \item Esquema de iteración: $x^{(k)} = Tx^{(k-1)} + c$ donde $T\in \mathbb{R}^{nxn}, c\in\mathbb{R}^n$
+    \item \textbf{Jacobi:} $T = D^{-1}(L+U)$, $c = D^{-1}b$
+    \item \textbf{Gauss Seidel:} $T = (D-L)^{-1}U$, $c = (D-L)^{-1}b$
+    \item $A$ es convergente si $\lim_{k \to \infty} A^k = 0$
+    \item Si $||T|| < 1$ o $\rho(T) < 1$ el sistema converge
+    \item Si $\rho(A) < 1 \iff \lim_{k \to \infty} ||A^k|| = 0 \iff \lim_{k \to \infty} A^kx = 0 \forall x \in \mathbb{R}^n$
+    \item Si $\rho(A) < 1$ entonces $I-A$ es inversible
+    \item Si $A$ es simétrica definida positiva, $GS$ converge
+
+    \item Si $L \in \mathbb{R}^{mxn}$ es estrictamente triangular superior (ceros en la diagonal) entonces $L^n = \emptyset$ ya que al multiplicarla por si misma se anulan sus supradiagonales
+\end{enumerate}
+\subsection*{Práctica 8: Cuadrados mínimos lineales}
+\begin{enumerate}
+    \item $Im(A) \bigoplus Nu(A^t) = \mathbb{R}^n$
+    \item $Im(A)^{\perp} = Nu(A^t)$
+    \item $Nu(A)^{\perp} = \{y \in \mathbb{R}^n | y\perp x,  \forall x \in Nu(A)\}$
+    \item Todo $y\in Im(A)$ puede escribirse como combinación lineal de las columnas de $A$
+    \item CML : $\min_{x\in\mathbb{R}^n} ||Ax-b||_2^2$ 
+    \item \textbf{Ecuaciones normales:} $A^tAx=A^tb$ cualquier solucion de ecuaciones normales es solución de cuadrados mínimos para $Ax=b$
+    \item $||u+v||_2^2 = ||u||_2^2+||v||_2^2 + 2u^tv$
+    \item Si $u\perp v \Rightarrow ||u+v||_2^2 = ||u||_2^2+||v||_2^2$ 
+    \item $Ax^*=b \iff x-x^*\in Nu(A)$
+    \item Cuadrados mínimos tiene solución única si y solo si $Nu(A) = Nu(A^tA)=\{0\}$
+    \item $||Ax||_2^2= 0 \Rightarrow Ax=0$
+     \item $A\in\mathbb{R}^{mxn}:$\begin{itemize}
+         \item $A^tA$ semidefinida positiva
+         \item Si $m<n$ $A^tA$ no es definida positiva
+         \item Si $m\geq n$ $A^tA$ definida positiva si y solo si A tiene rango máximo
+     \end{itemize}
+     \item Si $s\in S$ y $t \in S^{\perp}$, entonces existe una única forma de escribir $w=s+t$ para todo $w\in\mathbb{R}^n$
+     \item Sea $S\subseteq \mathbb{R}^m$ subespacio, sea $s \in S$ la proyección ortogonal $P$ de $x$ sobre el subespacio $S$ $\Rightarrow Px=s$
+     \item Caso cuadrados mínimos $Ax$ es la proyección ortogonal de $b$ sobre la imagen de $A$
+     \item $Ax \in Im(A) \land (b-Ax^*) \in Im(A)^{\perp}$ donde $x^*$ solución de cuadrados minimos
+\end{enumerate}
