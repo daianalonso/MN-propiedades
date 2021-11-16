@@ -5,6 +5,22 @@
             top=0.7in,
             bottom=0.8in]{geometry}
 \usepackage{amsfonts, amsmath}
+
+%\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
+\newcommand{\newnote}[1]{
+    \colorbox{Dandelion}{\parbox{0.9\textwidth}{#1}}
+}
+\newcommand{\alertnote}[1]{
+    \colorbox{Salmon}{\parbox{0.9\textwidth}{#1}}
+}
+\newcommand{\infonote}[1]{
+    \colorbox{Gray}{\parbox{0.9\textwidth}{#1}}
+}
+\newcommand{\remarknote}[1]{
+    \colorbox{LimeGreen}{\parbox{0.9\textwidth}{#1}}
+}
+
 \begin{document}
 \input{primer-parcial}
 \newpage

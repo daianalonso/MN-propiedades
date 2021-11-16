@@ -2,8 +2,24 @@
 \subsection*{Práctica 1: Repaso álgebra lineal}
 \begin{enumerate}
     \item $v^tuu^tv = (u^tv)^2$
-    \item $AB \neq BA$
+    \item \colorbox{Salmon}{$AB \neq BA$}
     \item $C(A+B) = CA + CB$
+    \item Regla general multiplicación $AB$: \\
+    $ \begin{pmatrix}
+a_1^t \\
+a_2^t \\
+a_3^t 
+\end{pmatrix}$ $B = $ $\begin{pmatrix}
+a_1^t B \\
+a_2^tB \\
+a_3^tB 
+\end{pmatrix} $ \\
+\linebreak
+$A$ $ \begin{pmatrix}
+b_1 & b_2 & b_3 
+\end{pmatrix} $   $=$ $\begin{pmatrix}
+Ab_1 & Ab_2 & Ab_3 
+\end{pmatrix}  $
     \item $(AB)_{ij} = fila_i(A)*col_j(B)$
     \item $Ae_{i} = col_i(A)$
     \item $e_i^tA = fila_i(A)$
@@ -12,6 +28,15 @@
     \item $dim(Im(A)) = rango(A)$ (cantidad de columnas linealmente independientes)
     \item Teorema de la dimensión: $A \in \mathbb{R}^{mxn}$, $dim(Nu(A)) + dim(Im(A)) = n$
     \item Matriz estrictamente diagonal dominante: $|a_{ii}| > \sum_{j=i}{}|a_{ij}|$
+    \begin{itemize}
+    \item \newnote{
+            A es estrictamente diagonal dominante cuando lo es por \textbf{filas} \underline{ó} por \textbf{columnas}
+            }
+	\item \newnote{\textbf{Por filas}: para cada fila, el módulo del elemento de la diagonal es estrictamente mayor a la norma de los elementos de la fila.}
+	\item \newnote{\textbf{Por columnas}: análogo para columnas.}
+
+    \end{itemize}    
+    
     \item Matriz inversa
     \begin{itemize}
     \item A inversible es equivalente a:
@@ -27,13 +52,14 @@
     \item $(A^t)^{-1} = (A^{-1})^t$
     \item $(kA)^{-1} = k^{-1} A^{-1}$, $k\in\mathbb{R}$
     \item La inversa de una matriz triangular superior es triangular inferior, y viceversa
+    \item \colorbox{Dandelion}{Si A es estrictamente diagonal dominante entonces es \textbf{inversible}}
+    \item \colorbox{Salmon}{\textbf{NO VALE} que $(A+B)^{-1} = A^{-1} + B^{-1}$}
     \end{itemize}
     \item Matriz traspuesta
     \begin{itemize}
-        \item $(A+B)^t = A^t + B^t$
+        \item \colorbox{LimeGreen}{\textbf{SI VALE} que $(A+B)^t = A^t + B^t$}
         \item $(AB)^t = B^tA^t$
     \end{itemize}
-    \item $(A^t)^{-1} = (A^{-1})^t$
     \item Traza
     \begin{itemize}
         \item $tr(A) = \sum_{i=1}^{n}a_{ii}$ 
@@ -46,7 +72,7 @@
         \item $det(I) = 1$
         \item $det(A^{-1}) = (det(A))^{-1} \iff A$ es inversible
         \item $det(A) = \prod_{i=1}^{n}a_{ii} \iff A$ es triangular 
-        \item $det(kA) = k^ndet(A)$
+        \item \colorbox{Gray}{Si $A \in \mathbb{R}^{nxn} \Rightarrow$} $det(kA) = k^ndet(A)$ -- Chequear qué pasa si A no es cuadrada.
         \item $A \in \mathbb{R}^{2x2} \Rightarrow A^{-1} = \frac{1}{det(A)} \begin{pmatrix}
                         d & -b\\
                         -c & a
@@ -54,13 +80,16 @@
     \end{itemize}
 \end{enumerate}
 
-\subsection*{Práctica 2: Eliminación Gaussiana y Normas}
+\subsection*{Práctica 2: Eliminación Gaussiana, Factorización LU y Normas}
 \begin{enumerate}
     \item $\kappa_2(A) = ||A||_2 ||A^{-1}||_2$
+    
     \item Normas vectoriales
     \begin{itemize}
         \item \textbf{Cauchy} $|z^tx|^2 \leq ||z||_2^2 ||x||_2^2$
          \item \textbf{Desigualdad triangular} $||x+y|| \leq ||x||+||y||$
+         \item $||u+v||_2^2 = ||u||_2^2+||v||_2^2 + 2u^tv$
+         \item $||x||_p = \sqrt{|x_1|^p+|x_2|^p+\dots |x_n|^p}$
         \item $||x||_2 = \sqrt{\sum_{i=1}^{n} x_i^2}$
         \item $||x||_1 = \sum_{i=1}^{n} |x_i|$
         \item $||x||_{\infty}  = \max_{i=1 \dots n} x_i$
@@ -69,6 +98,7 @@
         \item $||x||_1 \leq n ||x||_{\infty}$
         \item $||x||_{\infty} \leq ||x||_2$
     \end{itemize}
+    
     \item Normas Matriciales
     \begin{itemize}
          \item $||A||_1 = \max_{1\leq j\leq n} \sum_{i=1}^{n} |a_{ij}|$ (máxima suma de cada columna)
@@ -79,6 +109,16 @@
         \item $||Ax|| \leq ||A||*||x||$
         \item $||AB|| \leq ||A||*||B|| \iff$ A,B son matrices cuadradas
         \item $||A||_M \leq ||A||_2 \leq n ||A||_M$
+    \end{itemize}
+    
+    \item Factorización LU
+    \begin{itemize}
+        \item \newnote{L ("Lower") es triangular inferior \textbf{con unos en la diagonal}. Debajo de la diagonal tiene los multiplicadores usados para la triangulación en la eliminación gaussiana.}
+        \item \newnote{U ("Upper") es triangular superior, y es el resultado de la triangulación de A en la eliminación gaussiana.}
+        \item \newnote{$A$ estrictamente diagonal dominante $\Rightarrow$ tiene factorización LU}
+        \item \newnote{Submatrices de $A$ inversibles $\Leftrightarrow$ tiene factorización LU}
+        \item \alertnote{$A$ inversible \textbf{no necesariamente} tiene factorización LU}
+        \item \newnote{Si $A$ inversible y tiene LU $\Rightarrow$ la LU es única}
     \end{itemize}
 \end{enumerate}
 
@@ -91,20 +131,24 @@
     \item Toda matriz puede escribirse como la suma entre una matriz simétrica y una antisimétrica
     \item Definida positiva $\iff x^tAx>0 \  \forall x \in \mathbb{R}^n x\neq0$
     \item Si A no es inversible, $AA^t$ es simétrica semi-definida positiva, es decir que $x^tAA^tx \geq 0 \forall x $
-    \item Propiedades matrices SDP:
+    \item Si A es SDP entonces:
     \begin{itemize}
-        \item Son inversibles
+        \item A inversible
         \item $a_{ii} > 0$
-        \item Tienen factorización LU
+        \item \newnote{Toda submatriz de A es sdp y por lo tanto inversible}
+        \item A tiene factorización LU (por prop anterior)
+        \item \newnote{La submatriz 2 a n (despues del primer paso de triangulación de la eliminación gaussiana) es SDP}
     \end{itemize}
     \item $A$ $sdp \iff B^tAB$ $sdp$ con $B$ inversible
     \item Si $A$ es $sdp$, el elemento de módulo máximo de A está en la diagonal. 
     \item Si $A$ es $sdp \Rightarrow |x^tAy| \leq \sqrt{x^tAx}\sqrt{y^tAy}$ 
-    \item Si $A$ es $sdp \Rightarrow |a_{ij}|\leq a_{ii}a_{jj}$
+    \item Si $A$ es $sdp \Rightarrow |a_{ij}|^2\leq a_{ii}a_{jj}$
     \item Factorización de Cholesky
     \begin{itemize}
-        \item $A = LU = LDL^t = L\sqrt{D}\sqrt{D}L^t = \hat{L}\hat{L^t}$ donde $\hat{l}_{ii} = l_{ii}\sqrt{d_{ii}} = \sqrt{u_{ii}}$
         \item A tiene factorización de Cholesky $\iff$ A es $sdp$
+        \item $A = LU = LDL^t = L\sqrt{D}\sqrt{D}L^t = \hat{L}\hat{L^t}$ donde $D = L^{-1}U^t$ y $\hat{l}_{ii} = l_{ii}\sqrt{d_{ii}} = \sqrt{u_{ii}}$
+        \item \remarknote{D es diagonal, con elementos estrictamente positivos}
+        \item \alertnote{$\hat{L}$ \textbf{no necesariamente} tiene "unos" en la diagonal}
     \end{itemize}
 \end{enumerate}
 
@@ -116,10 +160,37 @@
     \item $\kappa_2(Q) = 1$
     \item $||Qx||_2=||x||_2$
     \item Producto de matrices ortogonales es ortogonal
-    \item Sus columnas son ortogonales entre sí y tienen norma 2 igual a 1, entonces forman un conjunto ortonormal
-    \item $det(Q)= |1|$
-    \item $Ax=b \Rightarrow Rx=Q^tb$
+    \item Sus columnas (filas) son ortogonales entre sí y tienen norma 2 igual a 1, entonces forman un conjunto ortonormal
+    \item $det(Q)= 1$ ó $-1$
+    \item $Ax=b \Rightarrow Rx=Q^tb$,  $Q$ ortogonal y $R$ triangular superior
     \item Si $Q$ es ortogonal y triangular, entonces $Q$ es diagonal y además $col_i(Q)=\pm e_i$
+    \item Si A es inversible, entonces tiene una única factorización QR posible
+    \item $A =$ $ \begin{bmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} 
+\end{bmatrix}  $, $x = \begin{pmatrix}
+a_{11} \\
+a_{21} 
+\end{pmatrix}$, $y =  \begin{pmatrix}
+||x||_2 \\
+0 
+\end{pmatrix}  $
     \item Matrices de rotación (Givens)
+    \begin{itemize}
+        \item W =$ \begin{bmatrix}
+\cos{\theta} & \sin{\theta} \\
+-\sin{\theta} & \cos{\theta} 
+\end{bmatrix}  $
+        \item Rotación hacia el eje x:\\
+        W = $ \begin{bmatrix}
+\frac{x_1}{||x||_2} & \frac{x_2}{||x||_2} \\
+-\frac{x_2}{||x||_2} & \frac{x_1}{||x||_2} 
+\end{bmatrix}  $
+    \end{itemize}
     \item Matrices de reflexión (Householder)
+    \begin{itemize}
+        \item $v = x + y$
+        \item $u = \frac{x-y}{||x-y||_2}$
+        \item $H = I - 2uu^t$
+    \end{itemize}
 \end{enumerate}
