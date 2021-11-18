@@ -106,7 +106,8 @@ Ab_1 & Ab_2 & Ab_3
          \item $||A||_1 = \max_{1\leq j\leq n} \sum_{i=1}^{n} |a_{ij}|$ (máxima suma de cada columna)
           \item $||A||_{\infty} = \max_{1\leq i\leq n} \sum_{j=1}^{n} |a_{ij}|$ (máxima suma de cada fila)
          \item $||A||_2 = \max_{||x||_2=1} ||Ax||_2$
-         \item $||A||_F = \sqrt{\sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij}^2}$
+         \item $\| A \|_{F} = \sqrt{ \sum_{i=1}^{n} a_{ij}^2 } = \sqrt{ \| c_1(A) \|_2^2 + \ldots + \| c_n(A) \|_2^2}$ donde $c_i$ es la columna $i$ de $A$ 
+         \item $||A||_F = ||A^t||_F$
         \item $||I|| = 1$
         \item $||Ax|| \leq ||A||*||x||$
         \item $||AB|| \leq ||A||*||B|| \iff$ A,B son matrices cuadradas
