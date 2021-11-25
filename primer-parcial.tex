@@ -52,6 +52,7 @@ Ab_1 & Ab_2 & Ab_3
     \item $(AB)^{-1} = B^{-1}A^{-1}$
     \item $(A^t)^{-1} = (A^{-1})^t$
     \item $(kA)^{-1} = k^{-1} A^{-1}$, $k\in\mathbb{R}$
+    \item Sea $A$ matriz triangular, es inversible si los elementos de la diagonal son distintos de cero. 
     \item La inversa de una matriz triangular superior es triangular \colorbox{Dandelion}{superior}, y viceversa
     \item \colorbox{Dandelion}{Si A es estrictamente diagonal dominante entonces es \textbf{inversible}}
     \item \colorbox{Salmon}{\textbf{NO VALE} que $(A+B)^{-1} = A^{-1} + B^{-1}$}
@@ -119,9 +120,16 @@ Ab_1 & Ab_2 & Ab_3
         \item \newnote{L ("Lower") es triangular inferior \textbf{con unos en la diagonal}. Debajo de la diagonal tiene los multiplicadores usados para la triangulación en la eliminación gaussiana.}
         \item \newnote{U ("Upper") es triangular superior, y es el resultado de la triangulación de A en la eliminación gaussiana.}
         \item \newnote{$A$ estrictamente diagonal dominante $\Rightarrow$ tiene factorización LU}
-        \item \newnote{Submatrices de $A$ inversibles $\Leftrightarrow$ tiene factorización LU}
+        \item \newnote{Submatrices de $A$ inversibles $\Rightarrow$ tiene factorización LU}
         \item \alertnote{$A$ inversible \textbf{no necesariamente} tiene factorización LU}
         \item \newnote{Si $A$ inversible y tiene LU $\Rightarrow$ la LU es única}
+        \item $M_k M_{k-1} \dots M_1 A = U$ 
+        \item $M_1 = I - r_1e_1^t$, donde $r_1 = \begin{pmatrix}
+        0 \\
+        m_{21}\\
+        m_{31} \\
+        m_{41}
+        \end{pmatrix}$ y $m_{ij} = \frac{a_{ij}}{a_{jj}}$ 
     \end{itemize}
 \end{enumerate}
 
@@ -153,7 +161,7 @@ Ab_1 & Ab_2 & Ab_3
         \item A tiene factorización de Cholesky $\iff$ A es $sdp$
         \item $A = LU = LDL^t = L\sqrt{D}\sqrt{D}L^t = \hat{L}\hat{L^t}$ donde $D = L^{-1}U^t$ y $\hat{l}_{ii} = l_{ii}\sqrt{d_{ii}} = \sqrt{u_{ii}}$
         \item \remarknote{D es diagonal, con elementos estrictamente positivos}
-        \item \alertnote{$\hat{L}$ \textbf{no necesariamente} tiene "unos" en la diagonal}
+        \item \alertnote{$\hat{L}$ \textbf{no necesariamente} tiene "unos" en la diagonal, pero $l_{ii} > 0$}
     \end{itemize}
 \end{enumerate}
 
@@ -169,7 +177,7 @@ Ab_1 & Ab_2 & Ab_3
     \item $det(Q)= 1$ ó $-1$
     \item $Ax=b \Rightarrow Rx=Q^tb$,  $Q$ ortogonal y $R$ triangular superior
     \item Si $Q$ es ortogonal y triangular, entonces $Q$ es diagonal y además $col_i(Q)=\pm e_i$
-    \item Si A es inversible, entonces tiene una única factorización QR posible
+    \item Si A es inversible, entonces tiene una única factorización $QR$ posible, donde $R$ triangular superior con $r_{ii} > 0$
     \item $A =$ $ \begin{bmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22} 

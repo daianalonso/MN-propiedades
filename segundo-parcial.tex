@@ -14,23 +14,26 @@
     \item \textbf{radio espectral:} $\rho(A) = \max \{|\lambda| : \lambda$ autovalor de $A\}$
     \item $det(A-\lambda I) = 0$ por lo tanto no es inversible
     \item \textbf{polinomio característico:} $P(\lambda) = det(A-\lambda I)$, $\lambda$ autovalor de A $\iff \lambda$ es raíz de $P(\lambda)$
-    \item Si $Ax = \lambda x \Rightarrow \alpha A + \beta I = (\alpha \lambda + \beta) x$ $\forall \alpha,\beta \in C$ 
+    \item Si $v$ es autovector de $A$, $\alpha v$ también lo es. 
+    \item Si $\lambda$ es autovalor de $A \Rightarrow \lambda - \alpha$ es autovalor de $A - \alpha I$
+    \item Si $\lambda$ es autovalor de $A$, entonces los autovalores de $\alpha\mathbb{I}-\beta A$ son $\alpha+\beta \lambda$ 
+
     \item Si $Av = \lambda v \Rightarrow A^kv = \lambda^k v$
     \item Un $\lambda$ puede estar asociado a lo sumo a $m$ autovectores l.i., donde $m$ es la multiplicidad en el polinomio característico
-    \item Si $A$ es ortogonal, entonces todos sus autovalores tienen módulo 1
+    \item Si $A$ es ortogonal, entonces todos sus autovalores son $1$ o $-1$
     \item Si $A$ es $sdp$ todos sus autovalores $\lambda > 0$ 
     \item Si $A$ no es inversible $\Rightarrow \lambda = 0$ es autovalor de $A$
     \item Si $\lambda = 0$ no es autovalor de $A \Rightarrow$ A es inversible
-    \item Si $\lambda^1, \lambda^2, \dots, \lambda^n$ son autovalores distintos, con autovectores asociados $v^1, v^2, \dots, v^n$ entonces $A$ tiene $n$ autovalores distintos, entonces tiene base de autovectores (son todos l.i. y ortogonales)
-    \item Si $A$ es triangular entonces $a_{ii}$ es autovalor
+    \item Sea $A$ simétrica, si $\lambda^1, \lambda^2, \dots, \lambda^n$ son autovalores distintos, con autovectores asociados $v^1, v^2, \dots, v^n$ entonces $A$ tiene $n$ autovalores distintos, entonces tiene base de autovectores (son todos l.i. y ortogonales)
+    \item Si $A$ es triangular entonces sus autovalores son los elementos de su diagonal
     \item Si $v$ es un autovector asociado a $\lambda$ entonces $\alpha v$ también es un autovector asociado a $\alpha$
     \item $A$ y $A^t$ tienen los mismos autovalores, por lo tanto si $\lambda$ es autovalor de $AA^t$ lo es de $A^tA$ 
     \item Si $A$ es simétrica, todos sus autovalores son reales y existen sus autovectores con coeficientes reales
-    \item \textbf{matrices semejantes:} $A$ y $B$ son semejantes si existe una matriz $P$ inversible tal que: $A = P^{-1}BP$
-    \item Si $A$ tiene base de autovectores es \textbf{diagonalizable}: $\exists S$ inversible con sus autovectores como columnas  y $D$ con sus autovalores en la diagonal, se escribe como $A = SDS^{-1}$
+    \item \textbf{matrices semejantes:} $A$ y $B$ son semejantes si existe una matriz $P$ inversible tal que: $A = P^{-1}BP$. Si son semejantes, comparten autovalores. 
+    \item Si $A$ tiene base de autovectores (es simétrica) es \textbf{diagonalizable}: $\exists S$ inversible con sus autovectores como columnas  y $D$ con sus autovalores en la diagonal, se escribe como $A = SDS^{-1}$
     \item \textbf{método de potencia} $A$ con base de autovectores y $|\lambda_1| > |\lambda_2| \geq \dots \geq |\lambda_n|$, el autovalor principal se obtendrá a partir de un $x^{(0)}$ cualquiera iterando $x_{k+1} = \frac{Ax_k}{||Ax_k||}$
     \item \textbf{método de deflación} $A' = A - \lambda_1 v_1 v_1^t$ donde $v_1$ es el autovector asociado al máximo autovalor $\lambda_1$. A esta matriz se le vuelve a aplicar el método de la potencia para conseguir el segundo mayor autovalor.
-    \item Si $\lambda$ es autovalor de $A$, entonces los autovalores de $\alpha\mathbb{I}-\beta A$ son $\alpha+\beta \lambda$ 
+    
 \end{enumerate}
 
 \subsection*{Práctica 6: Descomposición en Valores Singulares}
@@ -39,6 +42,8 @@
     \item \textbf{valores singulares: }$\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r > 0 \in \Sigma$
     \item $\frac{Av_i}{\sigma_i} = u_i$, si $i = 1, \dots, r$
     \item $Av_i = 0$ ,si $i = r+1, \dots, n$
+    \item $A^t u_i = \sigma_i v_i$ si $i = 1, \dots, r$
+    \item $A^t u_i = 0 $ ,si $i = r+1, \dots, n$
     \item $A^tAv_i = \sigma_i^2 u_i$, si $i = 1, \dots, r$
     \item $A^tAv_i = 0$ ,si $i = r+1, \dots, n$
     \item Obtener descomposición en valores singulares:
