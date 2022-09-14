@@ -1,4 +1,4 @@
-# Resumen de propiedades para la práctica de la materia Métodos Numéricos
+# Resumen de propiedades de la materia Métodos Numéricos
 Este resumen fue hecho por alumnos el 2do cuatrimestre de 2021.\
 Como en la cursada virtual no fueron dadas las prácticas correspondientes a Interpolación/Integración ni Ceros de funciones, la misma está incompleta.\
 Pueden haber propiedades repetidas o que se deducen de otras.\
