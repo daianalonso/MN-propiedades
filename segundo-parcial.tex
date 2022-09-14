@@ -6,45 +6,53 @@
     \item $x = \frac {-b \pm \sqrt {b^2 - 4ac}}{2a}$
     \item $||QA|| = ||A||$ para cualquier $Q$ matriz ortogonal
     \item $||(v,w)|| = ||v||_2^2+||w||_2^2$ concatenación de vectores
+    \item \textbf{Pitágoras:}$ ||u+v||_2^2 = ||u||_2^2+||v||_2^2 + 2u^tv$. Si $u \perp v \Rightarrow ||u+v||_2^2 = ||u||_2^2+||v||_2^2$
     \item $A^tA$ es simétrica semidefinida positiva, tiene base ortonormal de autovectores reales y autovalores no negativos. 
+    \item Sea $\{x_1, x_2 \dots x_n\}$ base, puedo escribir a cualquier vector como $v = \alpha_1 x_1 + \alpha_2 x_2 + \dots + \alpha_n x_n$ donde $\alpha_i = x_i^t v$
 \end{itemize}
 \subsection*{Práctica 5: Autovalores y Autovectores}
 \begin{enumerate}
     \item $x \neq 0$ autovector con autovalor $\lambda$ de $A \iff Ax = \lambda x$ 
-    \item \textbf{radio espectral:} $\rho(A) = \max \{|\lambda| : \lambda$ autovalor de $A\}$
+    \item \textbf{Radio espectral:} $\rho(A) = \max \{|\lambda| : \lambda$ autovalor de $A\}$
     \item $det(A-\lambda I) = 0$ por lo tanto no es inversible
-    \item \textbf{polinomio característico:} $P(\lambda) = det(A-\lambda I)$, $\lambda$ autovalor de A $\iff \lambda$ es raíz de $P(\lambda)$
+    \item \textbf{Polinomio característico:} $P(\lambda) = det(A-\lambda I)$, $\lambda$ autovalor de A $\iff \lambda$ es raíz de $P(\lambda)$
     \item Si $v$ es autovector de $A$, $\alpha v$ también lo es. 
     \item Si $\lambda$ es autovalor de $A \Rightarrow \lambda - \alpha$ es autovalor de $A - \alpha I$
     \item Si $\lambda$ es autovalor de $A$, entonces los autovalores de $\alpha\mathbb{I}-\beta A$ son $\alpha+\beta \lambda$ 
-
     \item Si $Av = \lambda v \Rightarrow A^kv = \lambda^k v$
     \item Un $\lambda$ puede estar asociado a lo sumo a $m$ autovectores l.i., donde $m$ es la multiplicidad en el polinomio característico
-    \item Si $A$ es ortogonal, entonces todos sus autovalores son $1$ o $-1$
-    \item Si $A$ es $sdp$ todos sus autovalores $\lambda > 0$ 
-    \item Si $A$ no es inversible $\Rightarrow \lambda = 0$ es autovalor de $A$
+    \item Si $A$ es \textit{ortogonal} $\implies$ todos sus autovalores son $1$ o $-1$
+    \item Si $A$ es \textit{definida positiva} o \textit{semi definida positiva}, todos sus autovalores $\lambda > 0$ 
+    \item Si $A$ no es \textit{inversible} $\Rightarrow \lambda = 0$ es autovalor de $A$
     \item Si $\lambda = 0$ no es autovalor de $A \Rightarrow$ A es inversible
-    \item Sea $A$ simétrica, si $\lambda^1, \lambda^2, \dots, \lambda^n$ son autovalores distintos, con autovectores asociados $v^1, v^2, \dots, v^n$ entonces $A$ tiene $n$ autovalores distintos, entonces tiene base de autovectores (son todos l.i. y ortogonales)
-    \item Si $A$ es triangular entonces sus autovalores son los elementos de su diagonal
+    \item Si $A$ es \textit{inversible}, si $\lambda \neq 0$ es autovalor $\Rightarrow \lambda^{-1}$ es autovalor de $A^{-1}$
+    \item Si $\lambda^1, \lambda^2, \dots, \lambda^n$ son autovalores distintos, con autovectores asociados $v^1, v^2, \dots, v^n$ entonces $A$ tiene $n$ autovalores distintos, entonces tiene base de autovectores son todos l.i. Si $A$ es simétrica también son ortonormales
+    \item Si $A$ es \textit{triangular} $\implies$ sus autovalores son los elementos de su diagonal
     \item Si $v$ es un autovector asociado a $\lambda$ entonces $\alpha v$ también es un autovector asociado a $\alpha$
     \item $A$ y $A^t$ tienen los mismos autovalores, por lo tanto si $\lambda$ es autovalor de $AA^t$ lo es de $A^tA$ 
-    \item Si $A$ es simétrica, todos sus autovalores son reales y existen sus autovectores con coeficientes reales
-    \item \textbf{matrices semejantes:} $A$ y $B$ son semejantes si existe una matriz $P$ inversible tal que: $A = P^{-1}BP$. Si son semejantes, comparten autovalores. 
-    \item Si $A$ tiene base de autovectores (es simétrica) es \textbf{diagonalizable}: $\exists S$ inversible con sus autovectores como columnas  y $D$ con sus autovalores en la diagonal, se escribe como $A = SDS^{-1}$
-    \item \textbf{método de potencia} $A$ con base de autovectores y $|\lambda_1| > |\lambda_2| \geq \dots \geq |\lambda_n|$, el autovalor principal se obtendrá a partir de un $x^{(0)}$ cualquiera iterando $x_{k+1} = \frac{Ax_k}{||Ax_k||}$
-    \item \textbf{método de deflación} $A' = A - \lambda_1 v_1 v_1^t$ donde $v_1$ es el autovector asociado al máximo autovalor $\lambda_1$. A esta matriz se le vuelve a aplicar el método de la potencia para conseguir el segundo mayor autovalor.
+    \item Si $A$ es simétrica, todos sus autovalores son reales y existen sus autovectores con coeficientes reales, además tiene base ortonormal de autovectores.
+    \item \textbf{Matrices semejantes:} $A$ y $B$ son \textit{semejantes} si existe una matriz $P$ inversible tal que: $A = P^{-1}BP$. \textcolor{blue}{Si son semejantes, comparten autovalores.} 
+    \item Sea $Q$ matriz ortogonal, $\lambda$ es autovalor de $A \iff \lambda$ es autovalor de $Q^tAQ$
+    \item Si $A$ tiene todos sus autovalores reales, existe $Q$ ortogonal tal que $Q^tAQ = T$ con $T$ triangular superior. Si $A$ es simétrica, $T = D$ diagonal conteniendo sus autovalores. 
+    \item Si $A$ tiene base de autovectores es \textbf{diagonalizable}: $\exists S$ inversible con sus autovectores como columnas  y $D$ con sus autovalores en la diagonal, se escribe como $A = SDS^{-1}$
+    \item Si $A$ es diagonalizable, $tr(A) = \sum_i \lambda_i$ y $det(A)=\prod_i \lambda_i$
+    \item \textbf{Método de potencia} $A$ con base de autovectores y $|\lambda_1| > |\lambda_2| \geq \dots \geq |\lambda_n|$, el autovalor principal se obtendrá a partir de un $x^{(0)}$ cualquiera iterando $x_{k+1} = \frac{Ax_k}{||Ax_k||}$
+    \item \textbf{Método de deflación} $A' = A - \lambda_1 v_1 v_1^t$ donde $v_1$ es el autovector asociado al máximo autovalor $\lambda_1$. A esta matriz se le vuelve a aplicar el método de la potencia para conseguir el segundo mayor autovalor.
     
 \end{enumerate}
 
 \subsection*{Práctica 6: Descomposición en Valores Singulares}
+
+\paragraph{Idea.} $A \in \mathbb{R}^{mxn}$, $r = rg(A)$, existe descomposición $A=U\Sigma V^t$ con  $U \in \mathbb{R}^{mxm}$, $\Sigma \in \mathbb{R}^{mxn}$, $V\in \mathbb{R}^{nxn}$
+
 \begin{enumerate}
-    \item $A \in \mathbb{R}^{mxn}$, $A=U\Sigma V^t$ con  $U \in \mathbb{R}^{mxm}$, $\Sigma \in \mathbb{R}^{mxn}$, $V\in \mathbb{R}^{nxn}$
-    \item \textbf{valores singulares: }$\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r > 0 \in \Sigma$
+    \item \textbf{Valores singulares: }$\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r > 0 \in \Sigma$
     \item $\frac{Av_i}{\sigma_i} = u_i$, si $i = 1, \dots, r$
     \item $Av_i = 0$ ,si $i = r+1, \dots, n$
     \item $A^t u_i = \sigma_i v_i$ si $i = 1, \dots, r$
     \item $A^t u_i = 0 $ ,si $i = r+1, \dots, n$
     \item $A^tAv_i = \sigma_i^2 u_i$, si $i = 1, \dots, r$
+    \item $A^tAv_i = \lambda_i v_i$ ya que $\sigma^2_i = \lambda_i$
     \item $A^tAv_i = 0$ ,si $i = r+1, \dots, n$
     \item Obtener descomposición en valores singulares:
     \begin{itemize}
@@ -62,11 +70,20 @@
     \item $A \in \mathbb{R}^{nxn}$ simétrica definida positiva $\Rightarrow$ los autovalores de A coinciden con sus valores singulares. 
 \end{enumerate}
 \subsection*{Práctica 7: Métodos iterativos}
+    \paragraph{Idea.} Aproximar $Ax=b$, $A\in \mathbb{R}^{nxn}, b\in\mathbb{R}^n$ reescribimos $A = D - L - U$
 \begin{enumerate}
-    \item Queremos aproximar $Ax=b$, $A\in \mathbb{R}^{nxn}, b\in\mathbb{R}^n$ reescribimos $A = D - L - U$
     \item Esquema de iteración: $x^{(k)} = Tx^{(k-1)} + c$ donde $T\in \mathbb{R}^{nxn}, c\in\mathbb{R}^n$
-    \item \textbf{Jacobi:} $T = D^{-1}(L+U)$, $c = D^{-1}b$
-    \item \textbf{Gauss Seidel:} $T = (D-L)^{-1}U$, $c = (D-L)^{-1}b$
+    \item \textbf{Jacobi:} 
+    \begin{itemize}
+        \item Solo puede ser aplicado a una matriz $A$ tal que $a_{ii}\neq0$
+        \item Si $A$ es estrictamente diagonal dominante $\Rightarrow$ el método converge
+        \item $T = D^{-1}(L+U)$, $c = D^{-1}b$
+    \end{itemize}
+    \item \textbf{Gauss Seidel:} 
+    \begin{itemize}
+        \item Si $A$ es estrictamente diagonal dominante $\Rightarrow$ el método converge
+        \item $T = (D-L)^{-1}U$, $c = (D-L)^{-1}b$
+    \end{itemize}
     \item $A$ es convergente si $\lim_{k \to \infty} A^k = 0$
     \item Si $||T|| < 1$ o $\rho(T) < 1$ el sistema converge
     \item Si $\rho(A) < 1 \iff \lim_{k \to \infty} ||A^k|| = 0 \iff \lim_{k \to \infty} A^kx = 0 \forall x \in \mathbb{R}^n$
@@ -75,18 +92,24 @@
 
     \item Si $L \in \mathbb{R}^{mxn}$ es estrictamente triangular superior (ceros en la diagonal) entonces $L^n = \emptyset$ ya que al multiplicarla por si misma se anulan sus supradiagonales
 \end{enumerate}
+
 \subsection*{Práctica 8: Cuadrados mínimos lineales}
+
+\paragraph{Idea.} \textit{Dado un conjunto de pares ordenados $(x_i, y_i)$ para $i = 1, \dots, m$ buscamos una función $f(x)$ perteneciente a una familia $\mathcal{F}$ que ``mejor aproxime" a los datos.}
+
 \begin{enumerate}
     \item $Im(A) \bigoplus Nu(A^t) = \mathbb{R}^n$
     \item $Im(A)^{\perp} = Nu(A^t)$
     \item $Nu(A)^{\perp} = \{y \in \mathbb{R}^n | y\perp x,  \forall x \in Nu(A)\}$
+    \item Si $b \in \mathbb{R}^n \Rightarrow b = b^1 + b^2$ donde $b^1 \in Im(A)$ y $b^2 \in Nu(A^t)$
     \item Todo $y\in Im(A)$ puede escribirse como combinación lineal de las columnas de $A$
     \item CML : $\min_{x\in\mathbb{R}^n} ||Ax-b||_2^2$ 
     \item \textbf{Ecuaciones normales:} $A^tAx=A^tb$ cualquier solucion de ecuaciones normales es solución de cuadrados mínimos para $Ax=b$
     \item $||u+v||_2^2 = ||u||_2^2+||v||_2^2 + 2u^tv$
     \item Si $u\perp v \Rightarrow ||u+v||_2^2 = ||u||_2^2+||v||_2^2$ 
     \item $Ax^*=b \iff x-x^*\in Nu(A)$
-    \item Cuadrados mínimos tiene solución única si y solo si $Nu(A) = Nu(A^tA)=\{0\}$
+    \item \textit{Cuadrados mínimos siempre tiene solución}. La solución es \textbf{única} $\iff$ $Nu(A) = Nu(A^tA)=\{0\}$ o sea si las columnas de $A$ son linealmente independientes. 
+    \item Si $Nu(A^tA) = \{0\}$ entonces $A^tA$ es inversible, por lo tanto $x^* = (A^tA)^{-1}A^tb$
     \item $||Ax||_2^2= 0 \Rightarrow Ax=0$
      \item $A\in\mathbb{R}^{mxn}:$\begin{itemize}
          \item $A^tA$ semidefinida positiva
@@ -97,4 +120,42 @@
      \item Sea $S\subseteq \mathbb{R}^m$ subespacio, sea $s \in S$ la proyección ortogonal $P$ de $x$ sobre el subespacio $S$ $\Rightarrow Px=s$
      \item Caso cuadrados mínimos $Ax$ es la proyección ortogonal de $b$ sobre la imagen de $A$
      \item $Ax \in Im(A) \land (b-Ax^*) \in Im(A)^{\perp}$ donde $x^*$ solución de cuadrados minimos
+\end{enumerate}
+
+\subsection*{Práctica 9: Interpolación. Integración numérica}
+
+\subsubsection*{Interpolación}
+\paragraph{Idea.} \textit{Dado un conjunto de pares ordenados de valores $(x_i, y_i)$ para $i=0, \dots, n$ buscamos un polinomio $P(x)$ de grado a lo sumo $n$ tal que interpole los datos:} $$P(x_i)=y_i \qquad \forall i =0, \dots, n$$.
+
+\begin{enumerate}
+    \item Dados $(x_i, y_i)$ para $i = 0, \dots , n$ , el \textbf{polinomio interpolante} de grado menor o igual a $n$ \textit{existe} y es \textit{único}.
+    \item \textbf{Polinomio de Lagrange:}
+    $$P(x) = \sum_{k=0}^n f(x_k) L_{nk}(x_i) = \sum_{k=0}^n f(x_k) \prod_{j = 0, j \neq k}^n \frac{(x-x_j)}{(x_k-x_j)}$$
+    \item \textbf{Fórmula del error:} Si $x_0, \dots, x_n \in [a, b], f\in \mathcal{C}^{n+1}([a, b])$ y $\xi_x \in [a, b]$ 
+    $$f(x) = P(x) + \frac{f^{(n+1)}(\xi_x)}{(n+1)!}\prod_{i=0}^n(x-x_i)$$
+    \item \textbf{Diferencias divididas:}
+    $$P(x) = f[x_0] + f[x_0, x_1] (x-x_0) + f[x_0, x_1, x_2] (x-x_0)(x-x_1) + \dots + f[x_0, \dots, x_n] (x-x_0) \dots (x-x_{n-1})$$
+        \begin{itemize}
+            \item \textbf{Orden 0:} $f[x_i] = f(x_i)$
+            \item \textbf{Orden 1:} $f[x_i, x_{i+1}] = \frac{f[x_{i+1}]-f[x_i]}{x_{i+1} - x_i}$
+            \item \textbf{Orden $k$:} $f[x_i, x_{i+1}, \dots, x_{i+k}] = \frac{f[x_{i+1}, \dots, x_{i+k}]-f[x_i, \dots, x_{i+k-1}]}{x_{i+k} - x_i}$
+        \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Integración}
+\paragraph{Idea.} \textit{Aproximar la integral $\int_a^b f(x) dx \approx \sum_{i=0}^n a_i f(x_i)$}
+
+\begin{enumerate}
+    \item \textbf{Regla del trapecio:} Usando polinomio interpolador de grado 1 sobre $a, b$
+    $$\int_a^b f(x) dx = \frac{h}{2}[f(x_1) - f(x_0)] - \frac{h^3}{12}f''(\xi) \qquad h = x_1 - x_0$$
+    \item \textbf{Regla de Simpson:} Usando polinomio interpolador de grado 2 sobre $a, \frac{a+b}{2}, b$
+    $$\int_a^b f(x) dx = \frac{(x_2-x_0)}{6}[f(x_0) + 4f(x_1)+f(x_2)] - \frac{h^5}{90}f^{(4)}(\mu) \qquad h = x_1 - x_0 \text{ y } \mu \in (a,b)$$
+    \item \textbf{Regla compuesta:} \textit{Sumar las distintas aproximaciones de las integrales en los distintos intervalos, aprovechando el hecho que $\int_a^b f(x) dx = \sum_{i=0}^{n-1}(\int_{x_i}^{x_{i+1}} f(x) dx)$}
+        \begin{enumerate}
+            \item \textbf{Regla compuesta de trapecios:} \textit{Dividir $[a,b]$ en $n$ intervalos de longitud $h = \frac{b-a}{n}$}
+            $$\int_a^b f(x) dx \approx \frac{h}{2} \left( f(x_0) + 2 \sum_{i=1}^{n-1}f(x_i)+f(x_n) \right)$$
+            $$Error = -\frac{b-a}{12} h^2 f''(\mu) \qquad \mu \in (a,b)$$
+            \item \textbf{Regla compuesta de Simpson:}
+        \end{enumerate}
+    
 \end{enumerate}
