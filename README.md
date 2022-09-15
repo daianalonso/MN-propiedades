@@ -6,7 +6,7 @@ Acepto pull request de quienes quieran colaborar sumando las propiedades de esta
 
 A darle átomos!
 
-### Como recompilar pdf si hago cambios?
+### Cómo recompilar el pdf si hago cambios?
 - Instalar TexLive base
 `sudo apt-get install texlive-latex-base`
 
